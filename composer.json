@@ -1,0 +1,11 @@
+{
+    "require": {
+        "knplabs/github-api": "*"
+    },
+    "minimum-stability": "dev",
+    "autoload":{
+        "psr-4":{
+            "GPBT\\":"application/library/GPBT/"
+        }
+    }
+}

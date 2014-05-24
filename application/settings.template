@@ -1,0 +1,27 @@
+<?php
+$host = gethostname();
+return (object)array(
+    'user'         => 'github-dummy-jenkins-user-name',
+    'password'     => 'the-password-for-it',
+    'method'       => Github\Client::AUTH_HTTP_PASSWORD,
+    'targetBranch' => '*',//pattern for branch to be match
+    'workspace'    => '/path/to/workspace/under/jenkins/jobs',
+    'lock'         => '/tmp/jgt.lock',//lock file - this will hold new builds when building
+    'jenkinsUrl'   => "http://{$host}:8080",
+    'jenkinsToken' => 'see-readme',//remove-me
+    'dataPath'     => realpath(getenv('HOME') . '/path/under/jenkins/home/to/store/files'),
+    'github'       => (object)array(
+            'owner'      => 'owner-of-repository-or-user',
+            'repository' => 'repository-name',
+            'comment'   => (object)array(
+                    'success' => 'message-to-be-shown-on-success',
+                    'failure' => 'message-to-be-shown-on-error'
+                )
+        ),
+    'jenkins'      => (object)array(
+            'url'            => "http://{$host}:8080",
+            'project'        => 'jenkins-job-name',
+            'token'          => 'token',
+            'branchVariable' => 'SEE-README'
+        )
+);
